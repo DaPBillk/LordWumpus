@@ -1,0 +1,27 @@
+{
+  "name": "discordhackweekdaperson",
+  "version": "1.0.0",
+  "description": "A bot designed to entertain you and your friends in a society directed by you.",
+  "main": "./build/app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "tsc",
+    "dev": "nodemon .",
+    "run": "nodemon ./build/app.js"
+  },
+  "author": "DaPersonMGN",
+  "license": "MIT",
+  "dependencies": {
+    "@types/cryptr": "^4.0.0",
+    "better-sqlite-pool": "^0.1.2",
+    "cryptr": "^4.0.2",
+    "discord.js": "github:discordjs/discord.js",
+    "enmap": "^5.0.0"
+  },
+  "devDependencies": {
+    "@types/node": "^10.12.2",
+    "nodemon": "^1.18.5",
+    "ts-node": "^7.0.1",
+    "typescript": "^3.5.2"
+  }
+}
