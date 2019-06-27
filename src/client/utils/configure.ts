@@ -53,8 +53,17 @@ export const configure = async (client : DHWClient, message : Message) => {
                             client.storage.set("lynching", lynchs);
 
                             const wumpisify = client.storage.get("wumpusify", {});
-                            wumpisify[message.guild!.id] = Date.now() + (60000 * Math.floor(Math.random() * 5) + 3);
+                            wumpisify[message.guild!.id] = Date.now() + (60000 * (Math.floor(Math.random() * 5) + 3));
                             client.storage.set("wumpusify", wumpisify);
+
+                            const bosses = client.storage.get("bosses", {});
+                            bosses[message.guild!.id] = {
+                                health: Math.ceil(message.guild!.memberCount / 10),
+                                deleteChannelAt: Date.now() + (60000 * 60 * 24 * (Math.floor(Math.random() * 5) + 2)),
+                                nextBoss: Date.now() + (60000 * (Math.floor(Math.random() * 5) + 3)),
+                                attacked: []
+                            };
+                            client.storage.set("bosses", bosses);
 
                             success = true;
                             await message.channel.send(

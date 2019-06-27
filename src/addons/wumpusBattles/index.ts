@@ -38,12 +38,14 @@ module.exports = (client : DHWClient) => {
 
     client.on("message", async message => {
 
+        if (message.channel.type === "dm") return;
+
         const guildLevel = (client.storage.get("config", {})[message.guild!.id] || {
             prefix: "w!",
             level: DHWLevel.UNSET
         }).level;
 
-        if (message.channel.type !== "dm" && !message.author!.bot && (guildLevel === DHWLevel.BRAVERY || guildLevel === DHWLevel.BALANCE || guildLevel === DHWLevel.CHAOS)) {
+        if (!message.author!.bot && (guildLevel === DHWLevel.BRAVERY || guildLevel === DHWLevel.BALANCE || guildLevel === DHWLevel.CHAOS)) {
             const messagesLeft = channels.get(message.channel.id) || Math.floor(Math.random() * (MAX_MESSAGES - MIN_MESSAGES)) + MIN_MESSAGES;
             if (messagesLeft <= 1) {
                 channels.delete(message.channel.id);

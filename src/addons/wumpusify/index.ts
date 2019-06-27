@@ -21,5 +21,5 @@ module.exports = (client : DHWClient) => {
 
             }
         }
-    }), 2000);
+    }), 60000);
 };

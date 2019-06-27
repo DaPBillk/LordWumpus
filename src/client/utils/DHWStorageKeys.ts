@@ -23,5 +23,14 @@ export interface DHWStorageKeys {
     },
     wumpusify: {
         [id : string] : number
+    },
+    bosses: {
+        [id : string] : {
+            health : number,
+            deleteChannelAt : number,
+            nextBoss : number,
+            attacked : string[],
+            message? : Snowflake,
+        }
     }
 }
