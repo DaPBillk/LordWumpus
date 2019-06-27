@@ -12,18 +12,18 @@ export const configure = async (client : DHWClient, message : Message) => {
         // Valid.
         const level = await getSelection(
             message,
-            regularMessage(`**${Util.escapeMarkdown(client.user!.tag)}** can be very angry and demanding. It is recommended you set a barrier for him if you do not wish to see the **world burn**.`), [
+            regularMessage("**Lord Wumpus** can be very angry and demanding. It is recommended you limit him if you do not wish to see the **world burn**."), [
             {
                 id: DHWLevel.CHAOS,
-                text: `Chaos - If you no longer care for the server and wish to see **${Util.escapeMarkdown(client.user!.tag)}** rule with an iron fist. (ADMINISTRATOR required)`
+                text: "Chaos - If you no longer care for the server and wish to see **Lord Wumpus** rule with an iron fist.\n(ADMINISTRATOR required)"
             },
             {
                 id: DHWLevel.BALANCE,
-                text: "Balance - An equal amount of effects of brilliance and bravery. (MANAGE_CHANNELS required)"
+                text: "Balance - An equal amount of effects of brilliance and bravery.\n(MANAGE_CHANNELS required)"
             },
             {
                 id: DHWLevel.BRILLIANCE,
-                text: "Brilliance - If you would rather read Ancient Wumponian text (MANAGE_CHANNELS required)"
+                text: "Brilliance - If you would rather read Ancient Wumponian text\n(MANAGE_CHANNELS required)"
             },
             {
                 id: DHWLevel.BRAVERY,
@@ -44,7 +44,7 @@ export const configure = async (client : DHWClient, message : Message) => {
                         if (permissions.has("ADMINISTRATOR")) {
                             success = true;
                             await message.channel.send(
-                                regularMessage("**Lord Wumpus** understands your intentions.\nAll hope is lost if you do not please him.")
+                                regularMessage("**Lord Wumpus** starts laughing maniacally and slowly glows red as he floats into the sky.\nAll hope is lost...")
                                     .setFooter("Commands can now be used.")
                             );
                         } else {

@@ -31,7 +31,7 @@ interface DHWClientOptions extends ClientOptions {
     defaultPrefix : string
 }
 
-type CommandCategory = "";
+type CommandCategory = "Configuration Commands";
 
 
 export class DHWClient extends Client {
