@@ -32,13 +32,11 @@ This is where the madness truly starts.
 - Wumpus will change the server's avatar
 - All features from Brilliance and Bravery.
 
-## Opinion
+## Notes
 
-Wumpus' opinion can be swayed using **Wumpus Coins** to prevent catastrophes caused by his chaotic actions.
+Wumpus will only do chaotic actions if the owner deems it so
 
-**Note: Wumpus will only do chaotic actions if the owner deems it so**
-
-**Note Note: Additional commands and features can be found with w!help**
+Additional commands and features can be found with w!help
 
 ## Setup
 
