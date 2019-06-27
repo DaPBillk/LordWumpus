@@ -49,7 +49,7 @@ module.exports = (client : DHWClient) => {
         );
 
         if (choice === StoreOptions.WUMPUS_FRIENDS_PHOTO) {
-            if (WCManager.get(message.author!) > 250) {
+            if (WCManager.get(message.author!) < 250) {
                 return message.channel.send(
                     errorMessage(`Only ${WCManager.get(message.author!)} Wumpus Coins? Do you think Wumpus' private friend list is worth that much?`)
                 );

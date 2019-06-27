@@ -1,7 +1,7 @@
 {
   "name": "discordhackweekdaperson",
   "version": "1.0.0",
-  "description": "A bot designed to entertain you and your friends in a society directed by you.",
+  "description": "PLEASE LORD WUMPUS OR YOU SHALL DIE",
   "main": "./build/app.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
@@ -20,6 +20,7 @@
   },
   "devDependencies": {
     "@types/node": "^10.12.2",
+    "@types/ws": "^6.0.1",
     "nodemon": "^1.18.5",
     "ts-node": "^7.0.1",
     "typescript": "^3.5.2"

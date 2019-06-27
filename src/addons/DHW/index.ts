@@ -4,7 +4,10 @@ import { regularMessage } from "../../client/utils/createMessage";
 
 module.exports = (client : DHWClient) => {
     
-    client.on("ready", () => console.log(`${client.user!.tag} is online!`));
+    client.on("ready", () => {
+        console.log(`${client.user!.tag} is online!`);
+        client.user!.setActivity("with your lives. | w!help");
+    });
     client.on("invalidated", () => console.log("Disconnected. D:"));
     client.on("error", console.error);
 
