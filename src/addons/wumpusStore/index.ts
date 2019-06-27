@@ -6,6 +6,7 @@ import * as path from "path";
 enum StoreOptions {
     CHILD_LORD_WUMPUS_PHOTO,
     COLLEGE_LORD_WUMPUS_PHOTO,
+    WUMPUS_FRIENDS_PHOTO,
     SWAY_OPINION
 }
 
@@ -20,6 +21,10 @@ module.exports = (client : DHWClient) => {
         const guildConfig = client.storage.get("config", {})[message.guild!.id];
 
         const options = [
+            {
+                id: StoreOptions.WUMPUS_FRIENDS_PHOTO,
+                text: "View all of Wumpus' friends - **250 Wumpus Coins**"
+            },
             {
                 id: StoreOptions.CHILD_LORD_WUMPUS_PHOTO,
                 text: "A photo of Lord Wumpus as a child - **500 Wumpus Coins**"
@@ -43,7 +48,29 @@ module.exports = (client : DHWClient) => {
             options
         );
 
-        if (choice === StoreOptions.CHILD_LORD_WUMPUS_PHOTO) {
+        if (choice === StoreOptions.WUMPUS_FRIENDS_PHOTO) {
+            if (WCManager.get(message.author!) > 250) {
+                return message.channel.send(
+                    errorMessage(`Only ${WCManager.get(message.author!)} Wumpus Coins? Do you think Wumpus' private friend list is worth that much?`)
+                );
+            }
+            try {
+                await message.author!.send(
+                    regularMessage("Below we can see a list of all the friends of Lord Wumpus:\n** **\n** **\n** **\n** **")
+                        .setTitle("Lord Wumpus | Friends")
+                        .setFooter("It's ok Lord Wumpus... It's ok. *single tear*")
+                );
+                WCManager.add(message.author!, -250);
+            } catch (_) {
+                await message.channel.send(
+                    errorMessage("Lord Wumpus demands you to open your DMs to see his friends list.")
+                );
+                return;
+            }
+            await message.channel.send(
+                successMessage("Purchased a glimsp at Lord Wumpus' friend list.")
+            );
+        } else if (choice === StoreOptions.CHILD_LORD_WUMPUS_PHOTO) {
             if (WCManager.get(message.author!) < 500) {
                 return message.channel.send(
                     errorMessage(`Only ${WCManager.get(message.author!)} Wumpus Coins? What a puny and unworthy amount for a photo of Lord Wumpus.`)
