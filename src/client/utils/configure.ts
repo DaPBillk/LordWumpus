@@ -95,7 +95,7 @@ export const configure = async (client : DHWClient, message : Message) => {
         }
     } else {
         await message.channel.send(
-            errorMessage(`Before this bot can be used, the owner of this server (**${Util.escapeMarkdown(owner.user.tag)}**) must configure the bot.`)
+            errorMessage(`The owner of this server (**${Util.escapeMarkdown(owner.user.tag)}**) must configure the bot.`)
         );
         return false;
     }

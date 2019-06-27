@@ -31,7 +31,7 @@ interface DHWClientOptions extends ClientOptions {
     defaultPrefix : string
 }
 
-type CommandCategory = "Configuration Commands";
+export type CommandCategory = "Configuration Commands"|"General Commands"|"Bravery Commands"|"Brilliance Commands"|"Chaos Commands";
 
 
 export class DHWClient extends Client {
@@ -40,9 +40,9 @@ export class DHWClient extends Client {
 
     defaultPrefix : string;
 
-    private _listeners : Enmap<string, any>;
+    commands : Enmap<string, CommandOptions>;
 
-    private commands : Enmap<string, CommandOptions>;
+    private _listeners : Enmap<string, any>;
 
     private cooldowns : Enmap<Snowflake, number>;
 
@@ -120,11 +120,13 @@ export class DHWClient extends Client {
                 const command = this.commands.get(commandStr) || this.commands.find(command => command.alias.some(command => command.toLocaleLowerCase() === commandStr));
                 if (command) {
                     this.cooldowns.set(message.author!.id, Date.now() + this.cooldownDelay);
-                    if (guildConfig.level === DHWLevel.UNSET) {
-                        configure(this, message);
-                    } else {
-                        command.callback(message, args);
-                    }
+                    try {
+                        if (guildConfig.level === DHWLevel.UNSET) {
+                            await configure(this, message);
+                        } else {
+                            await command.callback(message, args);
+                        }
+                    } catch (_) {}
                 }
 
             }    
