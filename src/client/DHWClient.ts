@@ -5,6 +5,7 @@ import Enmap from "enmap";
 import { DiscordEvents } from "./utils/DiscordEvents";
 import { DHWStorage } from "./DHWStorage";
 import { configure } from "./utils/configure";
+import { DHWExports } from "./DHWExports";
 
 export enum DHWLevel {
     CHAOS, // You want Wumpus to take over.
@@ -37,6 +38,8 @@ export type CommandCategory = "Configuration Commands"|"General Commands"|"Brave
 export class DHWClient extends Client {
 
     storage : DHWStorage;
+    
+    exports : DHWExports;
 
     defaultPrefix : string;
 
@@ -58,6 +61,7 @@ export class DHWClient extends Client {
         this.commands = new Enmap();
         this.cooldowns = new Enmap();
         this.storage = new DHWStorage(options.storageKey);
+        this.exports = new DHWExports();
 
         this.createListeners();
     }
@@ -126,7 +130,7 @@ export class DHWClient extends Client {
                         } else {
                             await command.callback(message, args);
                         }
-                    } catch (_) {}
+                    } catch (_) {console.error(_)}
                 }
 
             }    

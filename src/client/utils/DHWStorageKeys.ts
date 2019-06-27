@@ -6,5 +6,8 @@ export interface DHWStorageKeys {
             prefix: string,
             level: DHWLevel
         }
+    },
+    coins: {
+        [id : string] : number
     }
 }
