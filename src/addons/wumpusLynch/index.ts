@@ -43,9 +43,12 @@ module.exports = (client : DHWClient) => {
                         member = await guild.members.fetch(guildLynching.lynchees[emotes.indexOf(reaction.emoji.name)]);
                         await message.delete();
                         await member.kick();
-                    } catch (_) {}
 
-                    // delete message
+                        for (const [, user] of reaction.users) {
+                            WCManager.add(user, 25);
+                        }
+
+                    } catch (_) {}
                 }
                 const lynchMembers = guild.members.filter(member => member.kickable).sort((mA, mB) => WCManager.get(mA) - WCManager.get(mB)).array().slice(0, emotes.length);
                 if (lynchMembers.length > 2) {
