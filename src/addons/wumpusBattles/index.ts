@@ -1,7 +1,7 @@
 import * as path from "path";
-import { DHWClient, DHWLevel } from "../client/DHWClient";
+import { DHWClient, DHWLevel } from "../../client/DHWClient";
 import { Snowflake, Message, Util } from "discord.js";
-import { regularMessage } from "../client/utils/createMessage";
+import { regularMessage } from "../../client/utils/createMessage";
 
 module.exports = (client : DHWClient) => {
     

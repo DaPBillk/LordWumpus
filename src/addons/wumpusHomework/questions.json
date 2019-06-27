@@ -1,0 +1,51 @@
+{
+    "questions": [
+        {
+            "question": "Wumpus sat down on a wall and had a great fall. What is this an example of?",
+            "choices": [
+                "Allusion",
+                "Metaphor",
+                "Simile",
+                "Personification"
+            ]
+        },
+        {
+            "question": "What does the following equation evalulate to? `235 + 65 / 5`",
+            "choices": [
+                "248",
+                "60",
+                "48",
+                "42"
+            ]
+        },
+        {
+            "question": "What is the element with a atomic number of 1?",
+            "choices": [
+                "Hydrogen",
+                "Helium",
+                "Gold",
+                "Lawrencium"
+            ]
+        },
+        {
+            "question": "What 2 numbers does binary consist of?",
+            "choices": [
+                "1 and 0",
+                "7 and 5",
+                "42 and 1337",
+                "1337 and 42",
+                "1000 + 300 + 30 + 7 and -1",
+                "-1 and 0"
+            ]
+        },
+        {
+            "question": "Along with color to TVs, what else came to color?",
+            "choices": [
+                "Dreams",
+                "Signs",
+                "Cars",
+                "Newspapers"
+            ]
+        }
+    ]
+}

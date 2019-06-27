@@ -38,7 +38,7 @@ module.exports = (client : DHWClient) => {
             .setTitle("Lord Wumpus' Decree");
 
         for (const [category, commands] of categories) {
-            if ((category === "Chaos Commands" && guildConfig.level === DHWLevel.CHAOS) || (category === "Brilliance Commands" && (guildConfig.level === DHWLevel.BALANCE || guildConfig.level === DHWLevel.BRILLIANCE)) || (category === "Bravery Commands" && (guildConfig.level === DHWLevel.BRAVERY || guildConfig.level === DHWLevel.BALANCE)) || (!["Bravery Commands", "Chaos Commands", "Brilliance Commands"].includes(category)) ) {
+            if ((category === "Chaos Commands" && guildConfig.level === DHWLevel.CHAOS) || (category === "Brilliance Commands" && (guildConfig.level === DHWLevel.BALANCE || guildConfig.level === DHWLevel.BRILLIANCE || guildConfig.level === DHWLevel.CHAOS)) || (category === "Bravery Commands" && (guildConfig.level === DHWLevel.BRAVERY || guildConfig.level === DHWLevel.BALANCE || guildConfig.level === DHWLevel.CHAOS)) || (!["Bravery Commands", "Chaos Commands", "Brilliance Commands"].includes(category)) ) {
                 embed = embed.addField(category, commands.map(command => `**${command.command}** - ${command.description}`).join("\n"));
             }
         }

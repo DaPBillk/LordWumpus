@@ -19,11 +19,11 @@ export const configure = async (client : DHWClient, message : Message) => {
             },
             {
                 id: DHWLevel.BALANCE,
-                text: "Balance - An equal amount of effects of brilliance and bravery.\n(MANAGE_CHANNELS required)"
+                text: "Balance - An equal amount of effects of brilliance and bravery."
             },
             {
                 id: DHWLevel.BRILLIANCE,
-                text: "Brilliance - If you would rather read Ancient Wumponian text\n(MANAGE_CHANNELS required)"
+                text: "Brilliance - If you would rather read Ancient Wumponian text"
             },
             {
                 id: DHWLevel.BRAVERY,

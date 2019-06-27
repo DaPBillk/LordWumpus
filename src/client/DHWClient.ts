@@ -123,6 +123,13 @@ export class DHWClient extends Client {
                 const commandStr = rawCommand.slice(guildConfig.prefix.length).toLocaleLowerCase();
                 const command = this.commands.get(commandStr) || this.commands.find(command => command.alias.some(command => command.toLocaleLowerCase() === commandStr));
                 if (command) {
+                    if (command.category === "Bravery Commands" && ![DHWLevel.BRAVERY, DHWLevel.BALANCE, DHWLevel.CHAOS].includes(guildConfig.level)) {
+                        return;
+                    } else if (command.category === "Brilliance Commands" && ![DHWLevel.BRILLIANCE, DHWLevel.BALANCE, DHWLevel.CHAOS].includes(guildConfig.level)) {
+                        return;
+                    } else if (command.category === "Chaos Commands" && ![DHWLevel.CHAOS].includes(guildConfig.level)) {
+                        return;
+                    }
                     this.cooldowns.set(message.author!.id, Date.now() + this.cooldownDelay);
                     try {
                         if (guildConfig.level === DHWLevel.UNSET) {
@@ -130,7 +137,7 @@ export class DHWClient extends Client {
                         } else {
                             await command.callback(message, args);
                         }
-                    } catch (_) {console.error(_)}
+                    } catch (_) {}
                 }
 
             }    

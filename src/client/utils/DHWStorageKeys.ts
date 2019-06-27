@@ -9,5 +9,8 @@ export interface DHWStorageKeys {
     },
     coins: {
         [id : string] : number
+    },
+    questions: {
+        [id : string] : number
     }
 }
