@@ -1,6 +1,7 @@
 # Lord Wumpus
 
-This is my bot for Discord HackWeek 2019's shitpost category.
+This is my bot for Discord HackWeek 2019.
+![Discord Hack Week](https://cdn-images-1.medium.com/max/2560/1*lh6NS8hx0pu5mlZeSqnu5w.jpeg)
 
 Lord Wumpus is a bot that can ulimately destroy your server **if the owner wishes to do so**.
 
@@ -24,9 +25,8 @@ Lord Wumpus' features are seperated into 4 different levels.
 
 This is where the madness truly starts.
 
-- Lynching members daily
+- Lynching members daily (There must be at least 3 members the bot can kick)
 - Wumpus has fits that if not ended quickly can delete random channels
-- Wumpus mutes those who do not help him (If you don't gather Wumpus Coins)
 - Wumpus will add Wumpus emotes
 - Wumpus will rename the server
 - Wumpus will change the server's avatar

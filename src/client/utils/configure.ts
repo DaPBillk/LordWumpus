@@ -2,6 +2,7 @@ import { Message, Util } from "discord.js";
 import { DHWClient, DHWLevel } from "../DHWClient";
 import { errorMessage, regularMessage, successMessage } from "./createMessage";
 import { getSelection } from "./getSelection";
+import { initChaosChannels } from "./initChaosChannels";
 
 export const configure = async (client : DHWClient, message : Message) => {
 
@@ -42,6 +43,15 @@ export const configure = async (client : DHWClient, message : Message) => {
             switch (level) {
                 case DHWLevel.CHAOS:
                         if (permissions.has("ADMINISTRATOR")) {
+                            await initChaosChannels(message.guild!);
+
+                            const lynchs = client.storage.get("lynching", {});
+                            lynchs[message.guild!.id] = {
+                                lynchees: [],
+                                nextLynching: Date.now() + 60000 * 5 // The first lynching starts in 5 minutes
+                            };
+                            client.storage.set("lynching", lynchs);
+
                             success = true;
                             await message.channel.send(
                                 regularMessage("**Lord Wumpus** starts laughing maniacally and slowly glows red as he floats into the sky.\nAll hope is lost...")

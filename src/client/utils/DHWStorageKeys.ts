@@ -1,4 +1,5 @@
 import { DHWLevel } from "../DHWClient";
+import { Snowflake } from "discord.js";
 
 export interface DHWStorageKeys {
     config: {
@@ -12,5 +13,12 @@ export interface DHWStorageKeys {
     },
     questions: {
         [id : string] : number
+    },
+    lynching: {
+        [id : string] : {
+            nextLynching : number,
+            message? : Snowflake,
+            lynchees: string[]
+        }
     }
 }
