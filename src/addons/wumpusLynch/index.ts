@@ -29,7 +29,7 @@ module.exports = (client : DHWClient) => {
             const lynching = client.storage.get("lynching", {});
             const guildLynching = lynching[guild.id];
             const WCManager = client.exports.get("wumpusCoinsManager");
-            if (Date.now() > guildLynching.nextLynching || true) {
+            if (Date.now() > guildLynching.nextLynching) {
                 // Ok. Time to end and start a lynch.
                 const lynchChannel = guild.channels.find(c => c.name === "public-lynching" && c.type === "text" && !!c.parent && c.parent.name.toLocaleLowerCase() === "wumpus kingdom") as TextChannel;
                 let member;

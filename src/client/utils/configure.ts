@@ -52,6 +52,10 @@ export const configure = async (client : DHWClient, message : Message) => {
                             };
                             client.storage.set("lynching", lynchs);
 
+                            const wumpisify = client.storage.get("wumpusify", {});
+                            wumpisify[message.guild!.id] = Date.now() + (60000 * Math.floor(Math.random() * 5) + 3);
+                            client.storage.set("wumpusify", wumpisify);
+
                             success = true;
                             await message.channel.send(
                                 regularMessage("**Lord Wumpus** starts laughing maniacally and slowly glows red as he floats into the sky.\nAll hope is lost...")

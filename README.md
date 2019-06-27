@@ -5,6 +5,8 @@ This is my bot for Discord HackWeek 2019.
 
 Lord Wumpus is a bot that can ulimately destroy your server **if the owner wishes to do so**.
 
+Lord Wumpus requires at least the SEND_MESSAGES and EMBED_LINKS permissions.
+
 Lord Wumpus' features are seperated into 4 different levels.
 
 ### Bravery
@@ -23,7 +25,7 @@ Lord Wumpus' features are seperated into 4 different levels.
 
 ### Chaos
 
-This is where the madness truly starts.
+This is where the madness truly starts. (The bot must have the administrator permission)
 
 - Lynching members daily (There must be at least 3 members the bot can kick)
 - Wumpus has fits that if not ended quickly can delete random channels

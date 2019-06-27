@@ -20,5 +20,8 @@ export interface DHWStorageKeys {
             message? : Snowflake,
             lynchees: string[]
         }
+    },
+    wumpusify: {
+        [id : string] : number
     }
 }
